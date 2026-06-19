@@ -1,0 +1,45 @@
+{
+  "name": "My Car Rent — ระบบจัดการงานรถเช่า",
+  "short_name": "My Car Rent",
+  "description": "ระบบจัดการงานรถเช่า คำนวณราคา เช็คระยะ บันทึกค่าใช้จ่าย",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#F97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "shortcuts": [
+    {
+      "name": "บันทึกค่าใช้จ่าย",
+      "short_name": "ค่าใช้จ่าย",
+      "description": "เพิ่มรายการค่าใช้จ่ายรายวัน",
+      "url": "/daily/add"
+    },
+    {
+      "name": "คำนวณราคาเช่า",
+      "short_name": "คิดราคา",
+      "description": "คำนวณราคาเช่ารถ",
+      "url": "/pricing"
+    },
+    {
+      "name": "เช็คระยะรถ",
+      "short_name": "เช็คระยะ",
+      "description": "ตรวจสอบรอบเช็คระยะรถยนต์",
+      "url": "/maintenance"
+    }
+  ]
+}

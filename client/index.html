@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#F97316" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="My Car Rent" />
+    <meta name="description" content="ระบบจัดการงานรถเช่า — My Car Rent" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <title>My Car Rent</title>
+
+    <!--
+      Font loading strategy:
+      1. dns-prefetch  — resolve DNS for both Google Fonts hosts as early as possible
+      2. preconnect    — open TCP+TLS connections before the browser parses CSS
+      3. preload       — fetch the font CSS at highest priority so the CSSOM is
+                         ready before first paint (avoids FOIT / layout shift)
+      4. <link rel="stylesheet"> with media="print" onload trick — loads the
+         actual @font-face rules without blocking rendering; the onload handler
+         switches media to "all" so the fonts apply once downloaded.
+      5. <noscript> fallback for browsers with JS disabled.
+    -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload the font CSS so it is fetched at highest priority -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- Non-blocking font stylesheet — switches to media="all" after load -->
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Umami analytics — enable by setting VITE_ANALYTICS_ENDPOINT and VITE_ANALYTICS_WEBSITE_ID env vars -->
+  </body>
+</html>
