@@ -205,11 +205,10 @@ export default function Calculator() {
                   <div className="mcr-input-group"><label className="mcr-label">{t("นาที", "Minutes")}</label><select value={data.lateReturnMinutes} onChange={(e) => setData((p) => ({ ...p, lateReturnMinutes: parseInt(e.target.value) }))} className="w-full px-3 py-2 rounded-lg border border-input bg-card text-foreground"><option value="0">0</option><option value="30">30</option></select></div>
                 </div>
                 <div className="mcr-input-group"><label className="mcr-label">{t("อัตราค่า/ชั่วโมง", "Rate/Hour")}</label><select value={data.lateReturnRate} onChange={(e) => setData((p) => ({ ...p, lateReturnRate: parseInt(e.target.value) }))} className="w-full px-3 py-2 rounded-lg border border-input bg-card text-foreground">{LATE_RETURN_RATES.map((r) => (<option key={r} value={r}>{formatNumber(r)}</option>))}</select></div>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={data.unknowReturnTime} onChange={(e) => setData((p) => ({ ...p, unknowReturnTime: e.target.checked }))} />
-                  <span className="text-sm text-muted-foreground">{t("ไม่รู้เวลา (หากรับและคืนรถเวลาเดิม)", "Unknown time (if same pick-up & return time)")}</span>
-                </label>
               </div>
+            )},
+            { key: "unknowTime", label: t("❓ ไม่รู้เวลา", "❓ Unknown Time"), checked: data.unknowReturnTime, content: (
+              <p className="text-sm text-muted-foreground">{t("หากรับและคืนรถเวลาเดิม ค่าเช่าคิดตามที่แจ้ง", "If same pick-up & return time, rental rate as quoted")}</p>
             )},
             { key: "outOfArea", label: "📍 ใช้งานนอกพื้นที่", checked: data.outOfAreaChecked, content: (
               <div className="space-y-3">
@@ -230,7 +229,7 @@ export default function Calculator() {
             <div key={key} className="border border-border rounded-lg overflow-hidden">
               <button onClick={() => toggleAccordion(key)} className="w-full px-4 py-3 flex items-center justify-between bg-card hover:bg-muted transition-colors">
                 <label className="flex items-center gap-3 cursor-pointer flex-1 text-left" onClick={(e) => e.stopPropagation()}>
-                  <input type="checkbox" checked={checked} onChange={() => { setData((p) => ({ ...p, [key === "lateReturn" ? "lateReturnChecked" : key === "outOfArea" ? "outOfAreaChecked" : "pickupDropChecked"]: !checked } as any)); if (!checked) setExpandedAccordion(key); }} />
+                  <input type="checkbox" checked={checked} onChange={() => { const field = key === "lateReturn" ? "lateReturnChecked" : key === "outOfArea" ? "outOfAreaChecked" : key === "unknowTime" ? "unknowReturnTime" : "pickupDropChecked"; setData((p) => ({ ...p, [field]: !checked } as any)); if (!checked) setExpandedAccordion(key); }} />
                   <span className="font-semibold text-foreground">{label}</span>
                 </label>
                 <ChevronDown size={20} className={`transition-transform ${expandedAccordion === key ? "rotate-180" : ""}`} />
@@ -241,7 +240,7 @@ export default function Calculator() {
 
           {/* Deposit */}
           <div className="mcr-card">
-            <h3 className="font-semibold text-foreground mb-3">🔒 เงินประกันรถ</h3>
+            <h3 className="font-semibold text-foreground mb-3">🔒 เงินประกันความเสียหาย</h3>
             <div className="flex gap-2 flex-wrap">
               {DEPOSIT_OPTIONS.map((a) => (<button key={a} onClick={() => setData((p) => ({ ...p, depositAmount: a }))} className={`px-3 py-2 rounded-lg font-semibold transition-all ${data.depositAmount === a ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>{formatNumber(a)}</button>))}
             </div>
@@ -249,7 +248,7 @@ export default function Calculator() {
 
           {/* Booking */}
           <div className="mcr-card">
-            <h3 className="font-semibold text-foreground mb-3">💳 ส่วนจองล่วงหน้า</h3>
+            <h3 className="font-semibold text-foreground mb-3">💳 เงินมัดจำเช่ารถ</h3>
             <div className="flex gap-2 flex-wrap">
               {BOOKING_OPTIONS.map((a) => (<button key={a} onClick={() => setData((p) => ({ ...p, bookingAmount: a }))} className={`px-3 py-2 rounded-lg font-semibold transition-all ${data.bookingAmount === a ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>{formatNumber(a)}</button>))}
             </div>
