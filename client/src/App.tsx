@@ -1,6 +1,6 @@
 /**
  * App.tsx — Unified My Car Rent PWA
- * Hub page + 3 sub-apps: Daily Task, Pricing Calculator, Maintenance Dashboard
+ * Hub page + 4 sub-apps: Daily Task, Pricing Calculator, Maintenance Dashboard, Merge Entries
  * Lazy-loaded sub-apps for performance.
  */
 import { lazy, Suspense } from "react";
@@ -32,6 +32,10 @@ const PricingCalculator = lazy(() => import("./pages/pricing/Calculator"));
 const MaintenanceDashboard = lazy(() => import("./pages/maintenance/Dashboard"));
 const AddVehicle = lazy(() => import("./pages/maintenance/AddVehicle"));
 const EditVehicle = lazy(() => import("./pages/maintenance/EditVehicle"));
+
+// --- Lazy: Merge Entries ---
+const MergeEntries = lazy(() => import("./pages/merge/MergeEntries"));
+
 
 // ── Logo — local icon for offline support ──────────────────────────
 
@@ -76,7 +80,7 @@ function PricingRouter() {
   );
 }
 
-// ── Maintenance Dashboard Sub-App Router (lazy) ────────────────────
+// ── Maintenance Dashboard Sub-App Router (lazy) ──────────────────────
 function MaintenanceRouter() {
   return (
     <Suspense fallback={<LazyFallback />}>
@@ -92,6 +96,17 @@ function MaintenanceRouter() {
             component={EditVehicle}
           />
         </Switch>
+      </SubAppLayout>
+    </Suspense>
+  );
+}
+
+// ── Merge Entries Sub-App Router (lazy) ──────────────────────────────
+function MergeRouter() {
+  return (
+    <Suspense fallback={<LazyFallback />}>
+      <SubAppLayout title="รวมรายการ" backTo="/">
+        <MergeEntries />
       </SubAppLayout>
     </Suspense>
   );
@@ -150,6 +165,9 @@ function Router() {
       <Route path="/maintenance" component={MaintenanceRouter} />
       <Route path="/maintenance/vehicles/new" component={MaintenanceRouter} />
       <Route path="/maintenance/vehicles/:id" component={MaintenanceRouter} />
+
+      {/* Merge Entries sub-app */}
+      <Route path="/merge" component={MergeRouter} />
 
       <Route component={NotFound} />
     </Switch>

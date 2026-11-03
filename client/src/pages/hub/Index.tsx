@@ -1,5 +1,5 @@
 /**
- * Hub Landing Page — 3 cards linking to each sub-app
+ * Hub Landing Page — 4 cards linking to each sub-app
  * Design aligned with dailytask's orange/white theme
  */
 import { useLocation } from "wouter";
@@ -40,6 +40,16 @@ const APPS = [
     gradient: "from-sky-500 to-blue-500",
     bgLight: "bg-sky-50",
     textColor: "text-sky-600",
+  },
+  {
+    key: "merge",
+    title: "รวมรายการ",
+    desc: "รวมข้อมูลการจองจากข้อความ Line และใบยืนยันระบบ เป็นเอกสารเดียว",
+    icon: ClipboardList,
+    route: "/merge",
+    gradient: "from-violet-500 to-purple-500",
+    bgLight: "bg-violet-50",
+    textColor: "text-violet-600",
   },
 ];
 
