@@ -234,7 +234,7 @@ function parseInput2(text: string): Partial<MergeResult> {
   }
 
   // Rental days
-  const daysMatch = text.match(/จำนวนวัน::\s*(.+)/);
+  const daysMatch = text.match(/จำนวนวัน::\s*(\d+)\s*วัน/);
   if (daysMatch) result.rentalDays = daysMatch[1].trim();
 
   // Pickup location
