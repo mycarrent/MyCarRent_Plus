@@ -6,9 +6,9 @@ import { useState } from "react";
 import { Copy, Check, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 
-const CAR_MODELS = ["Honda City Turbo", "Honda City eHEV", "Honda HR-V eHEV", "Toyota Yaris Ativ", "Toyota Fortuner"];
-const DEPOSIT_OPTIONS = [2000, 3000, 5000, 10000];
-const BOOKING_OPTIONS = [500, 1000, 2000];
+const CAR_MODELS = ["Honda City Turbo", "Honda City eHEV", "Honda HR-V eHEV", "Toyota Yaris Ativ", "Toyota Fortuner", "Hyundai H1", "Mitsubishi Xpander", "BYD Seal 5 DM-I"];
+const DEPOSIT_OPTIONS = [1000, 2000, 3000, 5000, 10000];
+const BOOKING_OPTIONS = [500, 1000, 2000, 3000];
 const LATE_RETURN_RATES = [100, 200];
 
 type RentMode = "daily" | "monthly";
