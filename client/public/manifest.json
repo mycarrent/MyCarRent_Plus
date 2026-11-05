@@ -1,0 +1,61 @@
+{
+  "name": "MCR Pricing Calculator",
+  "short_name": "MCR Pricing",
+  "description": "เครื่องคิดราคาเช่ารถ - สะดวก รวดเร็ว ถูกต้อง",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#FF7A00",
+  "background_color": "#FFFFFF",
+  "categories": ["business", "productivity"],
+  "screenshots": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "สร้างใบเสนอราคา",
+      "short_name": "เสนอราคา",
+      "description": "สร้างใบเสนอราคาเช่ารถใหม่",
+      "url": "/?mode=new",
+      "icons": [
+        {
+          "src": "/favicon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
