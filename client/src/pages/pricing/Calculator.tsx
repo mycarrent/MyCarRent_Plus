@@ -45,7 +45,7 @@ const defaults: PricingData = {
   lateReturnChecked: false, lateReturnHours: 0, lateReturnMinutes: 0, lateReturnRate: 100, unknowReturnTime: false,
   outOfAreaChecked: false, outOfAreaProvince: "", outOfAreaDays: 0, outOfAreaPricePerDay: 0,
   pickupDropChecked: false, pickupDropLocation: "", pickupDropPrice: 0,
-  depositAmount: 2000, bookingAmount: 1000,
+  depositAmount: 2000, bookingAmount: 2000,
   langMode: "th",
 };
 
